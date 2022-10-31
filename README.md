@@ -22,19 +22,19 @@ the overload returns a proxy object which handles the get or set depending on wh
 
 ## API
 
-```  
+```cpp
 /**
 * @brief pretty print a representation of the rbtree
 */
 void printTree()
 ```
-```
+```cpp
 /**
 * @brief recursively deletes every node to clear the tree, this tree object still lives
 */
 void clear()
 ```
-```
+```cpp
 /**
 * @brief makes a new tree with the same contents as this one
 *
@@ -42,7 +42,7 @@ void clear()
 */
 rbtree<K, V> *copy()
 ```
-```
+```cpp
 /**
 * @brief checks if the key is contained within the set/map
 *
@@ -52,7 +52,7 @@ rbtree<K, V> *copy()
 */
 bool contains(K key)
 ```
-```
+```cpp
 /**
 * @brief get the value of a key in the map.*
 * NOTE: this method has undefined behavior if the key is not in the map
@@ -62,7 +62,7 @@ bool contains(K key)
 */
 V getValue(K key)
 ```
-```
+```cpp
 /**
 * @brief gets the key's value if it is in the map
 *
@@ -73,7 +73,7 @@ V getValue(K key)
 */
 bool tryGetValue(K key, V *out)
 ```
-```
+```cpp
 /**
 * @brief Set the value of the key if it is in the map
 *
@@ -84,7 +84,7 @@ bool tryGetValue(K key, V *out)
 */
 bool setValue(K key, V value)
 ```
-```
+```cpp
 /**
 * @brief insert a key/key-value pair in the map if it does not exist in the map
 *
@@ -95,7 +95,7 @@ bool setValue(K key, V value)
 */
 bool insert(K key, V value = (V)NULL)
 ```
-```
+```cpp
 /**
 * @brief get/set/insert operator with [], works like in python
 *
@@ -109,7 +109,7 @@ bool insert(K key, V value = (V)NULL)
 */
 rbtree<K, V>::getSetProxy operator[](K key)
 ```
-```
+```cpp
 /**
 * @brief removes the key from the set/map if it exists
 *
@@ -119,7 +119,7 @@ rbtree<K, V>::getSetProxy operator[](K key)
 */
 bool remove(K key)
 ```
-```
+```cpp
 /**
 * @brief checks if the tree is valid in terms of black height property and red red property
 *
@@ -128,7 +128,7 @@ bool remove(K key)
 */
 bool checkValid()
 ```
-```
+```cpp
 /**
 * @brief clear all nodes and destroy the rbtree object
 */
