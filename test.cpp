@@ -1,4 +1,4 @@
-#include "./IComparable.cpp"
+#include "./IComparable.h"
 #include "./rbtree.cpp"
 #include <assert.h>
 class funnyInt : public IComparable {

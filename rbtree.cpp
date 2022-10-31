@@ -4,7 +4,7 @@
 using std::string, std::stringstream;
 
 #define STRICT_CHECK
-#ifndef STRICT_CHECK
+#ifdef STRICT_CHECK
 #define assert (void)
 #endif
 
