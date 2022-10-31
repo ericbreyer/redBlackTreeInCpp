@@ -5,21 +5,21 @@ enum color {
 };
 
 template <typename T>
-class rbnode {
+class bstnode {
 private:
     T data;
     color c = red;
-    rbnode<T> *l = nullptr;
-    rbnode<T> *r = nullptr;
-    rbnode<T> *p;
+    bstnode<T> *l = nullptr;
+    bstnode<T> *r = nullptr;
+    bstnode<T> *p;
 
     int compare(T other) {
         return data - other;
     }
-    void commitApoptosis(rbnode<T> **parentsChild) {
+    void commitApoptosis(bstnode<T> **parentsChild) {
         if (l && r) {
-            rbnode<T> *prev = this;
-            rbnode<T> *cur = r;
+            bstnode<T> *prev = this;
+            bstnode<T> *cur = r;
             while (cur->l) {
                 prev = cur;
                 cur = cur->l;
@@ -46,7 +46,7 @@ private:
     }
 
 public:
-    rbnode(T data, rbnode<T> *parent) {
+    bstnode(T data, bstnode<T> *parent) {
         this->data = data;
         p = parent;
     };
@@ -65,27 +65,27 @@ public:
         if (this->data == data) {
             return true;
         }
-        rbnode<T> **recurseOn = (compare(data) >= 0) ? &l : &r;
+        bstnode<T> **recurseOn = (compare(data) >= 0) ? &l : &r;
         if (!*recurseOn) {
             return false;
         }
         return (*recurseOn)->contains(data);
     }
     bool insert(T data) {
-        rbnode<T> **recurseOn = (compare(data) >= 0) ? &l : &r;
+        bstnode<T> **recurseOn = (compare(data) >= 0) ? &l : &r;
         if (!*recurseOn) {
-            *recurseOn = new rbnode(data, this);
+            *recurseOn = new bstnode(data, this);
             return true;
         } else {
             return (*recurseOn)->insert(data);
         }
     }
-    bool remove(T data, rbnode<T> **parentsChild) {
+    bool remove(T data, bstnode<T> **parentsChild) {
         if (this->data == data) {
             commitApoptosis(parentsChild);
             return true;
         }
-        rbnode<T> **recurseOn = (compare(data) >= 0) ? &l : &r;
+        bstnode<T> **recurseOn = (compare(data) >= 0) ? &l : &r;
         if (!*recurseOn) {
             return false;
         } else {
@@ -95,12 +95,12 @@ public:
 };
 
 template <typename T>
-class rbtree {
+class bsttree {
 private:
-    rbnode<T> *root;
+    bstnode<T> *root;
 
 public:
-    rbtree() {
+    bsttree() {
         root = nullptr;
     };
     void preOrderTraverse() {
@@ -117,7 +117,7 @@ public:
     };
     void insert(T data) {
         if (!root) {
-            root = new rbnode<T>(data, nullptr);
+            root = new bstnode<T>(data, nullptr);
             return;
         }
         root->insert(data);
@@ -134,23 +134,23 @@ public:
 };
 
 int main() {
-    rbtree<int> *myrbt = new rbtree<int>();
-    myrbt->insert(8);
-    myrbt->insert(4);
-    myrbt->insert(12);
-    myrbt->insert(2);
-    myrbt->insert(1);
-    myrbt->insert(0);
-    myrbt->insert(0);
-    myrbt->insert(1);
-    myrbt->insert(6);
-    myrbt->insert(10);
-    myrbt->insert(14);
-    myrbt->remove(0);
-    myrbt->remove(1);
-    myrbt->remove(4);
-    myrbt->remove(6);
-    myrbt->preOrderTraverse();
-    std::cout << myrbt->remove(8) << std::endl;
-    myrbt->preOrderTraverse();
+    bsttree<int> *mybstt = new bsttree<int>();
+    mybstt->insert(8);
+    mybstt->insert(4);
+    mybstt->insert(12);
+    mybstt->insert(2);
+    mybstt->insert(1);
+    mybstt->insert(0);
+    mybstt->insert(0);
+    mybstt->insert(1);
+    mybstt->insert(6);
+    mybstt->insert(10);
+    mybstt->insert(14);
+    mybstt->remove(0);
+    mybstt->remove(1);
+    mybstt->remove(4);
+    mybstt->remove(6);
+    mybstt->preOrderTraverse();
+    std::cout << mybstt->remove(8) << std::endl;
+    mybstt->preOrderTraverse();
 }
