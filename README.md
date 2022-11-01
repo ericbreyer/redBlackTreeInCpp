@@ -15,7 +15,11 @@ Overloads of the subscripting operator (operator\[\]) allow one to index the map
 - tree[key]: returns the value if it exists, undefined otherwise
 - tree[keyInMap] = value: sets the value in the map
 - tree[keyNotInMap] = value: inserts new key value pair into map
+
+
 the overload returns a proxy object which handles the get or set depending on what the user attempts do do with the value.     
+
+Corresponding article <a href="https://eric-breyer.medium.com/overloading-the-subscripting-operator-in-c-1745e8818e02">here</a>
      
 <img src="https://user-images.githubusercontent.com/52176894/199084028-8442a6a9-e66f-44bd-af6d-30f56ec9a4b9.png" width=50% height=50%>
 <img src="https://user-images.githubusercontent.com/52176894/199084913-837565c8-d01c-43ab-ad9c-922b4ac8ad03.png" width=50% height=50%>     
