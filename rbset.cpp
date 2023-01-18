@@ -1,4 +1,4 @@
-#include "./rbtree.cpp"
+#include "./rbtree/rbtree.h"
 
 /**
  * @brief wrapper over rbtree as a set
